@@ -1,0 +1,103 @@
+DAILY UPDATE FORM - SUBMISSION FLOW
+===================================
+
+1. INITIAL STATE
+---------------
+- Form displays with empty fields (except date which shows current date)
+- Submit button is enabled and shows "Submit Update" with an arrow icon
+- No status messages are visible
+
+2. USER INTERACTION
+------------------
+- User fills in required fields:
+  * Employee ID
+  * Date
+  * Team
+  * Project
+  * Present Members (comma-separated)
+  * Absent Members (comma-separated)
+  * Daily Update
+  * Blockers (optional)
+
+3. SUBMIT BUTTON CLICK
+---------------------
+a) Visual Changes:
+   - Button text changes to "Submitting..."
+   - Arrow icon disappears
+   - Button becomes disabled
+   - Previous status messages (if any) are cleared
+
+b) Behind the Scenes:
+   - Form's default submission behavior is prevented
+   - Loading state is activated
+   - Status messages are reset
+
+4. DATA PROCESSING
+-----------------
+a) Data Collection:
+   - All form fields are gathered into an object
+
+b) Data Formatting:
+   - Current timestamp is added
+   - Present members string is split into array
+   - Absent members string is split into array
+   
+c) Final Data Structure:
+   {
+     employeeId: "...",
+     date: "YYYY-MM-DD",
+     team: "...",
+     project: "...",
+     present_members: ["name1", "name2", ...],
+     absent_members: ["name1", "name2", ...],
+     update: "...",
+     blockers: "...",
+     created_at: "YYYY-MM-DDTHH:mm:ss.sssZ"
+   }
+
+5. SUPABASE INTERACTION
+----------------------
+- Formatted data is sent to Supabase database
+- System waits for response from Supabase
+- Connection to 'daily_updates' table is established
+- Insert operation is performed
+
+6. SUCCESS SCENARIO
+------------------
+If data is successfully stored in Supabase:
+a) Visual Feedback:
+   - Green success message appears: "Daily update submitted successfully!"
+   - Submit button returns to normal state
+   - Form fields are cleared (except date)
+
+b) Data Management:
+   - Form data is reset
+   - Date field maintains current date
+   - System ready for new entry
+
+7. ERROR SCENARIO
+----------------
+If there's an error during submission:
+a) Visual Feedback:
+   - Red error message appears: "Failed to submit update. Please try again."
+   - Submit button returns to normal state
+   - Form fields retain their values
+
+b) Error Handling:
+   - Error is logged to console
+   - User can try submitting again
+   - Form data is preserved
+
+8. FINAL STATE
+-------------
+Success Path:
+- Empty form (except date)
+- Success message visible
+- Ready for new entry
+
+Error Path:
+- Form data preserved
+- Error message visible
+- Ready for retry
+
+Note: This entire process happens asynchronously, meaning the user interface remains responsive throughout the submission process. 
