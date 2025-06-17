@@ -85,9 +85,15 @@ const DailyUpdateForm = () => {
 
     } catch (error) {
       console.error('Error submitting update:', error);
+      let errorMessage = 'Please try again.';
+      
+      if (error.message && error.message.includes('duplicate key value violates unique constraint')) {
+        errorMessage = "Can't add more than 1 entry for the same date";
+      }
+      
       setSubmitStatus({
         type: 'error',
-        message: `Failed to submit update: ${error.message || 'Please try again.'}`
+        message: `Failed to submit update: ${errorMessage}`
       });
     } finally {
       setIsSubmitting(false);
