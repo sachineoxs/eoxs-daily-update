@@ -160,10 +160,8 @@ const DailyUpdateForm = () => {
               <option value="Human Resources">Human Resources</option>
               <option value="Innovation Cell">Innovation Cell</option>
               <option value="Marketing">Marketing</option>
-              <option value="Product Research 2">Product Research 2</option>
+              <option value="Product">Product</option>
               <option value="PR and Branding">PR and Branding</option>
-              <option value="Product Development">Product Development</option>
-              <option value="Product Innovation">Product Innovation</option>
               <option value="Sales">Sales</option>
               <option value="Software Development">Software Development</option>
               <option value="Video Editing">Video Editing</option>
