@@ -43,8 +43,9 @@ const DailyUpdateForm = () => {
         date: formData.date,
         team: formData.team.trim(),
         project: formData.project.trim(),
-        update: `{${formData.update.trim()}}`,
-        blockers: formData.blockers.trim() ? `{${formData.blockers.trim()}}` : null
+        update: formData.update.trim() ? [formData.update.trim()] : [],
+        blockers: formData.blockers.trim() ? [formData.blockers.trim()] : []
+
       };
 
       // Validate data before submission
