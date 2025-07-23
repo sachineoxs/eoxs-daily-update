@@ -43,8 +43,9 @@ const DailyUpdateForm = () => {
         date: formData.date,
         team: formData.team.trim(),
         project: formData.project.trim(),
-        update: `{${formData.update.trim()}}`,
-        blockers: formData.blockers.trim() ? `{${formData.blockers.trim()}}` : null
+        update: formData.update.trim() ? [formData.update.trim()] : [],
+        blockers: formData.blockers.trim() ? [formData.blockers.trim()] : []
+
       };
 
       // Validate data before submission
@@ -153,21 +154,19 @@ const DailyUpdateForm = () => {
             >
               <option value="">Select your team</option>
               <option value="Administration">Administration</option>
-              <option value="Business analyst">Business analyst</option>
-              <option value="Content and Lead Conversion">Content and Lead Conversion</option>
-              <option value="Clicking">Clicking</option>
-              <option value="Data Analytics">Data Analytics</option>
+              <option value="Artificial Intelligence">Artificial Intelligence</option>
+              <option value="Blog">Blog</option>
+              <option value="Clicking Team">Clicking Team</option>
+              <option value="DevOps">DevOps</option>
               <option value="Human Resources">Human Resources</option>
+              <option value="Implementation">Implementation</option>
               <option value="Innovation Cell">Innovation Cell</option>
               <option value="Marketing">Marketing</option>
-              <option value="Product Research 2">Product Research 2</option>
-              <option value="PR and Branding">PR and Branding</option>
-              <option value="Product Development">Product Development</option>
-              <option value="Product Innovation">Product Innovation</option>
+              <option value="PR and Branding">PR and Branding</option> 
               <option value="Sales">Sales</option>
               <option value="Software Development">Software Development</option>
               <option value="Video Editing">Video Editing</option>
-              <option value="YFS">YFS</option>
+             
             </select>
           </div>
 
