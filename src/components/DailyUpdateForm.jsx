@@ -154,19 +154,19 @@ const DailyUpdateForm = () => {
             >
               <option value="">Select your team</option>
               <option value="Administration">Administration</option>
-              <option value="Business analyst">Business analyst</option>
-              <option value="Content and Lead Conversion">Content and Lead Conversion</option>
-              <option value="Clicking">Clicking</option>
-              <option value="Data Analytics">Data Analytics</option>
+              <option value="Artificial Intelligence">Artificial Intelligence</option>
+              <option value="Blog">Blog</option>
+              <option value="Clicking Team">Clicking Team</option>
+              <option value="DevOps">DevOps</option>
               <option value="Human Resources">Human Resources</option>
+              <option value="Implementation">Implementation</option>
               <option value="Innovation Cell">Innovation Cell</option>
               <option value="Marketing">Marketing</option>
-              <option value="Product">Product</option>
-              <option value="PR and Branding">PR and Branding</option>
+              <option value="PR and Branding">PR and Branding</option> 
               <option value="Sales">Sales</option>
               <option value="Software Development">Software Development</option>
               <option value="Video Editing">Video Editing</option>
-              <option value="YFS">YFS</option>
+             
             </select>
           </div>
 
